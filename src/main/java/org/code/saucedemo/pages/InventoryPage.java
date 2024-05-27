@@ -21,6 +21,11 @@ public class InventoryPage {
         weAddToCart.click();
     }
 
+    public void removeItemFromCart(String productName) {
+        WebElement weRemoveFromCart = driver.findElement(By.id("remove-" + productName));
+        weRemoveFromCart.click();
+    }
+
     public void addItemSauceLabsBackPackToCart() {
         driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
         //WebElement weAddToCart = driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
