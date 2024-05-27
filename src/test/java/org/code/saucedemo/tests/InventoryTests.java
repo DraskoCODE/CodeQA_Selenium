@@ -141,7 +141,8 @@ public class InventoryTests {
         Integer cartNumberBeforeRemove = inventoryPage.showNumberItemInCart();
         inventoryPage.removeItemFromCart("sauce-labs-onesie");
         Integer cartNumberAfterRemove = inventoryPage.showNumberItemInCart();
-
+        Assert.assertFalse(inventoryPage.isItemExist("remove-sauce-labs-onesie"), "Item is not removed");
+        Assert.assertTrue(inventoryPage.isItemExist("remove-sauce-labs-bike-light"), "Item is not removed");
         Assert.assertEquals(cartNumberBeforeRemove - 1, cartNumberAfterRemove, "Number count is not as expected");
 
         inventoryPage.close();

@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class InventoryPage {
 
     public ChromeDriver driver;
@@ -49,6 +51,16 @@ public class InventoryPage {
 
         //return Integer.parseInt(driver.findElement(By.xpath("//span[@data-test='shopping-cart-badge']")).getText());
 
+    }
+
+    public boolean isItemExist(String item) {
+        List<WebElement> list = driver.findElements(By.id(item));
+        if(list.size() > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public void openCart() {
