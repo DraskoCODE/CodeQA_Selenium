@@ -67,6 +67,13 @@ public class InventoryPage {
         driver.findElement(By.xpath("//a[@data-test='shopping-cart-link']")).click();
     }
 
+    public void sortBy(String sortValue) {
+        WebElement weContainer = driver.findElement(By.xpath("//select[@data-test='product-sort-container']"));
+        weContainer.click();
+        weContainer.findElement(By.xpath("//option[@value='" + sortValue +"']")).click();
+    }
+
+
     public void close() {
         driver.close();
     }

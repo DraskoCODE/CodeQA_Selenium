@@ -148,4 +148,22 @@ public class InventoryTests {
         inventoryPage.close();
     }
 
+    @Test
+    public void verifySortItems() {
+        System.setProperty("webdriver.chrome.driver", "D:\\Driver\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.open();
+        loginPage.setUserName("standard_user");
+        loginPage.setPassword("secret_sauce");
+        loginPage.clickOnLogin();
+
+        InventoryPage inventoryPage = new InventoryPage(driver);
+        inventoryPage.sortBy("hilo");
+        inventoryPage.sortBy("za");
+
+        inventoryPage.close();
+    }
+
 }
